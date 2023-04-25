@@ -22,17 +22,17 @@ void page1() {
         cin >> pass;
 
         map<string, string>::iterator account;
-        if (user.empty()) {
-            user[username] = pass;
+        if (users.empty()) {
+            users[username] = pass;
         }
         else {
-            for (account = user.begin(); account != user.end(); account++)
+            for (account = users.begin(); account != users.end(); account++)
                 if (account->first == username) {
                     cout << "Sorry! This login is occupied. Please, try with another one." << endl;
                     break;
                 }
                 else {
-                    user[username] = pass;
+                    users[username] = pass;
                     break;
                 }
         }
@@ -48,10 +48,10 @@ void page1() {
         cin >> log_pass;
 
         map<string, string>::iterator account;
-        for (account = user.begin(); account != user.end(); account++) {
+        for (account = users.begin(); account != users.end(); account++) {
             if (account->first == log_username && account->second == log_pass) {
                 cout << "Welcome " << log_username << "! You have logged on." << endl;
-                    flag = 1;
+                flag = 1;
             }
         }
         if (flag == 0)
