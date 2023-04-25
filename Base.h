@@ -7,7 +7,7 @@
 using namespace std;
 
 int flag;
-map<string, string> user;
+map<string, string> users;
 
 struct chat {
     int message_id;

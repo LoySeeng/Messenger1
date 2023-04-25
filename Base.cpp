@@ -23,7 +23,7 @@ void Base::chat_on(string uname, string recipient, char* message) {
 	SMS[recipient].receiver = recipient;
 	
 	map<string, string>::iterator account;
-	for (account = user.begin(); account != user.end(); account++) {
+	for (account = users.begin(); account != users.end(); account++) {
 		if (account->first == recipient) {
 			flag++;
 		}

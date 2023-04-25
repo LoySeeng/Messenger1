@@ -22,17 +22,17 @@ void page1() {
         cin >> pass;
 
         map<string, string>::iterator account;
-        if (user.empty()) {
-            user[username] = pass;
+        if (users.empty()) {
+            users[username] = pass;
         }
         else {
-            for (account = user.begin(); account != user.end(); account++)
+            for (account = users.begin(); account != users.end(); account++)
                 if (account->first == username) {
                     cout << "Sorry! This login is occupied. Please, try with another one." << endl;
                     break;
                 }
                 else {
-                    user[username] = pass;
+                    users[username] = pass;
                     break;
                 }
         }
@@ -42,23 +42,26 @@ void page1() {
         string log_username;
         string log_pass;
 
-        cout << "Enter your login: ";
-        cin >> log_username;
-        cout << "Enter your password: ";
-        cin >> log_pass;
+        do {
+            cout << "Enter your login: ";
+            cin >> log_username;
+            cout << "Enter your password: ";
+            cin >> log_pass;
 
-        map<string, string>::iterator account;
-        for (account = user.begin(); account != user.end(); account++) {
-            if (account->first == log_username && account->second == log_pass) {
-                cout << "Welcome " << log_username << "! You have logged on." << endl;
+            map<string, string>::iterator account;
+            for (account = users.begin(); account != users.end(); account++) {
+                if (account->first == log_username && account->second == log_pass) {
+                    cout << "Welcome " << log_username << "! You have logged on." << endl;
                     flag = 1;
+                    page2(log_username);
+                    break;
+                }
             }
-        }
-        if (flag == 0)
-        {
-            cout << "Someting has gone wrong. Please try again.";
-            break;
-        }
+            if (flag == 0)
+            {
+                cout << "Someting has gone wrong. Please try again.";
+            }
+        } while (flag == 0);
         break;
     }
     default: // выставить случай другой цифры + добавить case for 3
