@@ -16,3 +16,4 @@ Plans:
 * Add function for creating nicknames.
 * Make external container for users information, so it could still exist after closing app.
 * Add protection for  all this'strings'.
+* Create actual function "@all messages", not just group chats.
